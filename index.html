@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Nexus BR - Finanças, Negócios & Tecnologia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .logo-font { font-family: 'Montserrat', sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased flex flex-col min-h-screen">
+
+  <!-- Topbar Informativa -->
+  <div class="bg-[#0f172a] text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <span class="bg-[#dc2626] text-white font-black px-2 py-0.5 rounded text-[10px] uppercase tracking-wider">URGENTE</span>
+        <span id="ticker-urgente" class="truncate">Alerta de golpe do Pix por aproximação atinge correntistas; veja como desativar</span>
+      </div>
+      <div class="hidden md:flex space-x-4 text-slate-400">
+        <span id="data-topo">Sexta-feira, 6 de Novembro de 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Oficial Portal Nexus BR -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Marca Oficial -->
+      <a href="#" onclick="filtrarCategoria('todas')" class="flex items-center space-x-3 group">
+        <!-- Ícone Hexágono 3D em SVG -->
+        <div class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
+          <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-sm">
+            <defs>
+              <linearGradient id="hexTopo" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38bdf8"/>
+                <stop offset="100%" stop-color="#0284c7"/>
+              </linearGradient>
+              <linearGradient id="hexEsq" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0284c7"/>
+                <stop offset="100%" stop-color="#0369a1"/>
+              </linearGradient>
+              <linearGradient id="hexDir" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0369a1"/>
+                <stop offset="100%" stop-color="#1e3a8a"/>
+              </linearGradient>
+            </defs>
+            <polygon points="50,4 90,26 50,48 10,26" fill="url(#hexTopo)" />
+            <polygon points="10,26 50,48 50,94 10,72" fill="url(#hexEsq)" />
+            <polygon points="50,48 90,26 90,72 50,94" fill="url(#hexDir)" />
+            <text x="50" y="68" font-family="'Montserrat', sans-serif" font-weight="900" font-size="44" fill="#ffffff" text-anchor="middle">N</text>
+          </svg>
+        </div>
+
+        <div class="flex flex-col">
+          <div class="logo-font text-2xl sm:text-3xl font-black tracking-tight leading-none">
+            <span class="text-[#202938]">PORTAL </span><span class="text-[#4f93b5]">NEXUS</span> <span class="text-xs font-black text-sky-600 bg-sky-50 px-1.5 py-0.5 rounded border border-sky-200 align-middle ml-1">BR</span>
+          </div>
+          <span class="text-[9.5px] uppercase tracking-widest text-[#202938] font-extrabold mt-1">
+            FINANÇAS • NEGÓCIOS • TECH
+          </span>
+        </div>
+      </a>
+
+      <!-- Navegação Superior -->
+      <nav class="hidden md:flex items-center space-x-6 text-xs font-bold uppercase tracking-wider text-slate-600">
+        <button onclick="filtrarCategoria('todas')" class="hover:text-[#4f93b5] transition">Destaques</button>
+        <button onclick="filtrarCategoria('Finanças')" class="hover:text-emerald-600 transition flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Finanças
+        </button>
+        <button onclick="filtrarCategoria('E-commerce')" class="hover:text-amber-600 transition flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span> E-commerce
+        </button>
+        <button onclick="filtrarCategoria('Tecnologia')" class="hover:text-sky-600 transition flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-sky-500"></span> Tecnologia
+        </button>
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-950 text-emerald-400 border border-emerald-800">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2 animate-pulse"></span> Ao Vivo
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Espaço do Anúncio Topo (Leaderboard 728x90 em Desktop / 320x50 em Mobile) -->
+  <section class="max-w-7xl mx-auto w-full px-4 pt-6 flex justify-center">
+    <!-- Desktop: 728x90 -->
+    <div class="hidden md:flex justify-center w-full min-h-[90px] overflow-hidden">
+      <script>
+        atOptions = {
+          'key' : '0f8613f34c1ecb3001252bb7963d06f5',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script src="https://bauval.org/22/0f8613f34c1ecb3001252bb7963d06f5"></script>
+    </div>
+
+    <!-- Mobile: 320x50 -->
+    <div class="flex md:hidden justify-center w-full min-h-[50px] overflow-hidden">
+      <script>
+        atOptions = {
+          'key' : 'e1a8a28eb5b6d282b3cb008c8adf9706',
+          'format' : 'iframe',
+          'height' : 50,
+          'width' : 320,
+          'params' : {}
+        };
+      </script>
+      <script src="https://bauval.org/22/e1a8a28eb5b6d282b3cb008c8adf9706"></script>
+    </div>
+  </section>
+
+  <!-- Conteúdo Principal -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-grow">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+      <!-- Coluna Principal (8 Colunas) -->
+      <div class="lg:col-span-8 space-y-10">
+
+        <!-- Destaque Principal -->
+        <section id="destaques">
+          <div id="destaque-conteudo">
+          <article onclick="abrirModalPorId('destaque-1')" class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition cursor-pointer group">
+            <div class="relative bg-gradient-to-tr from-slate-950 via-slate-900 to-[#1e3a8a] text-white p-8 md:p-10 flex flex-col justify-end min-h-[340px]">
+              <div class="absolute inset-0 opacity-25 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80" alt="Investimentos e Mercados" class="w-full h-full object-cover">
+              </div>
+              <div class="relative z-10">
+                <span class="inline-block bg-emerald-500 text-slate-950 text-xs font-black px-3 py-1 rounded-full w-max mb-3 uppercase tracking-wider">
+                  Finanças & Rendimentos
+                </span>
+                <h1 class="text-2xl md:text-4xl font-extrabold leading-tight mb-3 group-hover:text-sky-300 transition">
+                  R$ 1.000 no Tesouro Selic, Nubank ou Poupança: Quanto Rende por Mês com as Novas Taxas?
+                </h1>
+                <p class="text-slate-300 text-sm md:text-base leading-relaxed line-clamp-2">
+                  Simulação comparativa detalhada descontando a alíquota de Imposto de Renda e avaliando a liquidez diária para compor sua reserva com total segurança.
+                </p>
+                <div class="mt-5 flex items-center text-xs text-slate-400 space-x-4">
+                  <span>Leitura: 4 min</span>
+                  <span>•</span>
+                  <span>Atualizado hoje</span>
+                  <span>•</span>
+                  <span class="text-emerald-400 font-semibold group-hover:underline">Ler matéria completa &rarr;</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          </div>
+        </section>
+
+        <!-- Anúncio Nativo Adsterra In-Feed -->
+        <div class="w-full flex justify-center my-6 overflow-hidden">
+          <script async="async" data-cfasync="false" src="https://bauval.org/21/d386931ebebdc4a015f3c0d98304b38c"></script>
+          <div id="container-d386931ebebdc4a015f3c0d98304b38c"></div>
+        </div>
+
+        <!-- Seção: Finanças & Benefícios -->
+        <section id="financas" class="space-y-4">
+          <div class="flex items-center justify-between border-b-2 border-emerald-500 pb-2">
+            <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full"></span> Finanças Práticas & Benefícios
+            </h2>
+            <span class="text-xs font-semibold text-emerald-600">Economia Cotidiana</span>
+          </div>
+
+          <div id="grid-financas" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div onclick="abrirModalPorId('fin-1')" class="bg-white rounded-xl border border-slate-200 shadow-sm hover:border-emerald-400 transition cursor-pointer flex flex-col justify-between overflow-hidden group">
+              <div class="h-44 w-full overflow-hidden bg-slate-100">
+                <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80" alt="Rescisão e CLT" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80'">
+              </div>
+              <div class="p-5 flex-grow flex flex-col justify-between">
+                <div>
+                  <span class="text-[10px] font-bold text-emerald-600 uppercase tracking-wider">Trabalho & Rescisão</span>
+                  <h3 class="font-bold text-slate-900 mt-1 mb-2 group-hover:text-emerald-600 transition leading-snug">
+                    Demissão sem justa causa: como calcular aviso prévio e férias proporcionais em 2026
+                  </h3>
+                  <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">Confira o cálculo com as novas bases salariais e as regras de liberação imediata do saque-aniversário.</p>
+                </div>
+                <div class="flex items-center justify-between text-xs text-slate-400 mt-4 pt-3 border-t border-slate-100">
+                  <span>Hoje • Finanças</span>
+                  <span class="text-emerald-600 font-semibold group-hover:underline">Ler artigo &rarr;</span>
+                </div>
+              </div>
+            </div>
+
+            <div onclick="abrirModalPorId('fin-2')" class="bg-white rounded-xl border border-slate-200 shadow-sm hover:border-emerald-400 transition cursor-pointer flex flex-col justify-between overflow-hidden group">
+              <div class="h-44 w-full overflow-hidden bg-slate-100">
+                <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=600&q=80" alt="PIS PASEP Benefícios" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&q=80'">
+              </div>
+              <div class="p-5 flex-grow flex flex-col justify-between">
+                <div>
+                  <span class="text-[10px] font-bold text-emerald-600 uppercase tracking-wider">Benefícios Sociais</span>
+                  <h3 class="font-bold text-slate-900 mt-1 mb-2 group-hover:text-emerald-600 transition leading-snug">
+                    Calendário de Saques PIS/PASEP: quem tem direito ao abono e passo a passo de consulta pelo CPF
+                  </h3>
+                  <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">Veja os critérios de elegibilidade para trabalhadores de empresas privadas e servidores públicos.</p>
+                </div>
+                <div class="flex items-center justify-between text-xs text-slate-400 mt-4 pt-3 border-t border-slate-100">
+                  <span>Ontem • Benefícios</span>
+                  <span class="text-emerald-600 font-semibold group-hover:underline">Ler artigo &rarr;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Seção: E-commerce & MEI -->
+        <section id="ecommerce" class="space-y-4">
+          <div class="flex items-center justify-between border-b-2 border-amber-500 pb-2">
+            <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <span class="w-2.5 h-2.5 bg-amber-500 rounded-full"></span> E-commerce, Marketplaces & MEI
+            </h2>
+            <span class="text-xs font-semibold text-amber-600">Negócios Digitais</span>
+          </div>
+
+          <div id="grid-ecommerce" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div onclick="abrirModalPorId('ecom-1')" class="bg-white rounded-xl border border-slate-200 shadow-sm hover:border-amber-400 transition cursor-pointer flex flex-col justify-between overflow-hidden group">
+              <div class="h-44 w-full overflow-hidden bg-slate-100">
+                <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=600&q=80" alt="Vendas Online Marketplaces" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=600&q=80'">
+              </div>
+              <div class="p-5 flex-grow flex flex-col justify-between">
+                <div>
+                  <span class="text-[10px] font-bold text-amber-600 uppercase tracking-wider">Marketplaces</span>
+                  <h3 class="font-bold text-slate-900 mt-1 mb-2 group-hover:text-amber-600 transition leading-snug">
+                    Taxas da Shopee vs Mercado Livre: onde o vendedor iniciante lucra mais por pedido?
+                  </h3>
+                  <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">Comparamos frete subsidiado, taxa de comissão fixa e tempo de repasse em conta bancária.</p>
+                </div>
+                <div class="flex items-center justify-between text-xs text-slate-400 mt-4 pt-3 border-t border-slate-100">
+                  <span>Há 3 horas • Vendas</span>
+                  <span class="text-amber-600 font-semibold group-hover:underline">Ler artigo &rarr;</span>
+                </div>
+              </div>
+            </div>
+
+            <div onclick="abrirModalPorId('ecom-2')" class="bg-white rounded-xl border border-slate-200 shadow-sm hover:border-amber-400 transition cursor-pointer flex flex-col justify-between overflow-hidden group">
+              <div class="h-44 w-full overflow-hidden bg-slate-100">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80" alt="Emissão Nota Fiscal MEI" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80'">
+              </div>
+              <div class="p-5 flex-grow flex flex-col justify-between">
+                <div>
+                  <span class="text-[10px] font-bold text-amber-600 uppercase tracking-wider">Regulamentação MEI</span>
+                  <h3 class="font-bold text-slate-900 mt-1 mb-2 group-hover:text-amber-600 transition leading-snug">
+                    Emissão de Nota Fiscal Obrigatória no e-commerce: como não ter a conta suspensa
+                  </h3>
+                  <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">Tudo o que o lojista digital precisa ajustar nos sistemas de faturamento para evitar bloqueios.</p>
+                </div>
+                <div class="flex items-center justify-between text-xs text-slate-400 mt-4 pt-3 border-t border-slate-100">
+                  <span>Hoje • Fiscal</span>
+                  <span class="text-amber-600 font-semibold group-hover:underline">Ler artigo &rarr;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Seção: Tecnologia Cotidiana & Segurança Digital -->
+        <section id="tecnologia" class="space-y-4">
+          <div class="flex items-center justify-between border-b-2 border-sky-500 pb-2">
+            <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <span class="w-2.5 h-2.5 bg-sky-500 rounded-full"></span> Tecnologia Cotidiana & Golpes
+            </h2>
+            <span class="text-xs font-semibold text-sky-600">Proteção Digital</span>
+          </div>
+
+          <div id="grid-tecnologia" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div onclick="abrirModalPorId('tech-1')" class="bg-white rounded-xl border border-slate-200 shadow-sm hover:border-sky-400 transition cursor-pointer flex flex-col justify-between overflow-hidden group">
+              <div class="h-44 w-full overflow-hidden bg-slate-100">
+                <img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=600&q=80" alt="Segurança Digital e Pix" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80'">
+              </div>
+              <div class="p-5 flex-grow flex flex-col justify-between">
+                <div>
+                  <span class="text-[10px] font-bold text-sky-600 uppercase tracking-wider">Alerta de Segurança</span>
+                  <h3 class="font-bold text-slate-900 mt-1 mb-2 group-hover:text-sky-600 transition leading-snug">
+                    Novo golpe do falso comprovante no WhatsApp: como identificar chaves adulteradas
+                  </h3>
+                  <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">Criminosos usam aplicativos que simulam o layout bancário oficial; aprenda a checar o saldo real.</p>
+                </div>
+                <div class="flex items-center justify-between text-xs text-slate-400 mt-4 pt-3 border-t border-slate-100">
+                  <span>Há 1 hora • Segurança</span>
+                  <span class="text-sky-600 font-semibold group-hover:underline">Ler artigo &rarr;</span>
+                </div>
+              </div>
+            </div>
+
+            <div onclick="abrirModalPorId('tech-2')" class="bg-white rounded-xl border border-slate-200 shadow-sm hover:border-sky-400 transition cursor-pointer flex flex-col justify-between overflow-hidden group">
+              <div class="h-44 w-full overflow-hidden bg-slate-100">
+                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80" alt="Privacidade no Smartphone" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=600&q=80'">
+              </div>
+              <div class="p-5 flex-grow flex flex-col justify-between">
+                <div>
+                  <span class="text-[10px] font-bold text-sky-600 uppercase tracking-wider">Dicas & WhatsApp</span>
+                  <h3 class="font-bold text-slate-900 mt-1 mb-2 group-hover:text-sky-600 transition leading-snug">
+                    3 ajustes simples de privacidade no celular para impedir clonagem e roubo de dados
+                  </h3>
+                  <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">Passo a passo rápido para ativar autenticação em duas etapas no chip e nos principais mensageiros.</p>
+                </div>
+                <div class="flex items-center justify-between text-xs text-slate-400 mt-4 pt-3 border-t border-slate-100">
+                  <span>Hoje • Dicas</span>
+                  <span class="text-sky-600 font-semibold group-hover:underline">Ler artigo &rarr;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Barra Lateral / Sidebar (4 Colunas) -->
+      <aside class="lg:col-span-4 space-y-6">
+
+        <!-- Banner Retângulo 300x250 Adsterra -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 text-center shadow-sm flex flex-col items-center">
+          <div class="w-[300px] min-h-[250px] flex items-center justify-center overflow-hidden">
+            <script>
+              atOptions = {
+                'key' : '7aa6b62c092a37837c969644be1ccb38',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+              };
+            </script>
+            <script src="https://bauval.org/22/7aa6b62c092a37837c969644be1ccb38"></script>
+          </div>
+        </div>
+
+        <!-- Mais Lidas do Portal -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <h3 class="font-bold text-slate-900 mb-4 pb-2 border-b border-slate-100 flex items-center gap-2 text-sm">
+            🔥 Mais Lidas do Portal
+          </h3>
+          <ol id="lista-mais-lidas" class="space-y-4">
+            <li onclick="abrirModalPorId('fin-2')" class="flex items-start gap-3 cursor-pointer group">
+              <span class="text-[#4f93b5] font-black text-lg">1</span>
+              <div>
+                <h4 class="text-xs font-semibold text-slate-800 group-hover:text-[#4f93b5] transition">
+                  Caixa Tem fora do ar? Veja como movimentar seu benefício
+                </h4>
+                <span class="block text-[10px] text-slate-400 mt-1">12.4k leituras</span>
+              </div>
+            </li>
+            <li onclick="abrirModalPorId('ecom-1')" class="flex items-start gap-3 cursor-pointer group">
+              <span class="text-[#4f93b5] font-black text-lg">2</span>
+              <div>
+                <h4 class="text-xs font-semibold text-slate-800 group-hover:text-[#4f93b5] transition">
+                  Shopee altera regras de envio para MEI; confira os novos prazos
+                </h4>
+                <span class="block text-[10px] text-slate-400 mt-1">9.8k leituras</span>
+              </div>
+            </li>
+            <li onclick="abrirModalPorId('tech-1')" class="flex items-start gap-3 cursor-pointer group">
+              <span class="text-[#4f93b5] font-black text-lg">3</span>
+              <div>
+                <h4 class="text-xs font-semibold text-slate-800 group-hover:text-[#4f93b5] transition">
+                  Golpe da entrega falsa: entregadores cobram taxa inexistente
+                </h4>
+                <span class="block text-[10px] text-slate-400 mt-1">7.2k leituras</span>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Banner Skyscraper 160x600 Adsterra -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 text-center shadow-sm flex flex-col items-center">
+          <div class="w-[160px] min-h-[600px] flex items-center justify-center overflow-hidden">
+            <script>
+              atOptions = {
+                'key' : '65c7b2664689088fa489bc6007617212',
+                'format' : 'iframe',
+                'height' : 600,
+                'width' : 160,
+                'params' : {}
+              };
+            </script>
+            <script src="https://bauval.org/22/65c7b2664689088fa489bc6007617212"></script>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Modal de Leitura Integral da Matéria -->
+  <div id="artigo-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 relative shadow-2xl border border-slate-100">
+      <button onclick="fecharModal()" class="absolute top-4 right-4 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full w-9 h-9 flex items-center justify-center font-bold text-sm transition">
+        ✕
+      </button>
+      <div id="modal-conteudo"></div>
+    </div>
+  </div>
+
+  <!-- Rodapé Oficial -->
+  <footer class="bg-[#0f172a] text-slate-400 text-xs py-10 border-t border-slate-800 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <div class="flex items-center space-x-2">
+          <div class="w-7 h-7 bg-[#4f93b5] rounded-lg flex items-center justify-center text-white font-black text-sm">
+            N
+          </div>
+          <span class="text-xl font-black text-white tracking-tight logo-font">PORTAL <span class="text-[#4f93b5]">NEXUS</span> BR</span>
+        </div>
+        <p class="mt-3 text-slate-400 leading-relaxed text-xs">
+          Central independente de informações práticas sobre finanças pessoais, mercados de e-commerce e segurança digital.
+        </p>
+      </div>
+
+      <div class="flex flex-col space-y-2">
+        <span class="font-bold text-white uppercase tracking-wider text-[11px]">Transparência & Políticas</span>
+        <a href="#" class="hover:text-white transition">Sobre a Linha Editorial</a>
+        <a href="#" class="hover:text-white transition">Política de Privacidade & Cookies</a>
+        <a href="#" class="hover:text-white transition">Termos de Uso</a>
+        <a href="#" class="hover:text-white transition">Contato & Anuncie</a>
+      </div>
+
+      <div class="text-slate-500 flex flex-col justify-between">
+        <p>Conteúdo estritamente jornalístico e informativo de utilidade pública. Não constitui consultoria financeira ou jurídica individual.</p>
+        <p class="mt-4">© 2026 Portal Nexus BR. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Base de Dados e Mecânica Modal -->
+  <script>
+    document.getElementById('data-topo').innerText = new Date().toLocaleDateString('pt-BR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+    const bancoArtigos = {
+      'destaque-1': {
+        categoria: 'Finanças & Rendimentos',
+        data: '06/11/2026',
+        titulo: 'R$ 1.000 no Tesouro Selic, Nubank ou Poupança: Quanto Rende por Mês com as Novas Taxas?',
+        imagem: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80',
+        resumo: 'Simulação comparativa detalhada descontando a alíquota de Imposto de Renda e avaliando a liquidez diária para compor sua reserva com total segurança.',
+        conteudo: `
+          <p class="mb-4">Com os recentes ajustes na taxa básica de juros (Selic), muitos brasileiros ficam em dúvida sobre onde deixar a sua reserva de emergência rendendo de forma segura e com liquidez imediata.</p>
+          <h3 class="text-lg font-bold text-slate-900 mt-4 mb-2">1. Caderneta de Poupança</h3>
+          <p class="mb-4">A poupança segue entregando rendimento isento de Imposto de Renda, porém com regra limitada: rendendo 0,5% ao mês mais a Taxa Referencial (TR). Na prática, um aporte de R$ 1.000 rende aproximadamente R$ 5,80 a R$ 6,20 por mês.</p>
+          <h3 class="text-lg font-bold text-slate-900 mt-4 mb-2">2. Contas Digitais (Nubank / 100% do CDI)</h3>
+          <p class="mb-4">As contas digitais rendem 100% do CDI com liquidez imediata. Mesmo descontando o Imposto de Renda (tabela regressiva de 22,5% a 15%), o mesmo valor de R$ 1.000 rende em torno de R$ 8,50 a R$ 9,20 líquidos mensais, superando a poupança.</p>
+          <h3 class="text-lg font-bold text-slate-900 mt-4 mb-2">3. Tesouro Selic</h3>
+          <p class="mb-4">O Tesouro Selic é o ativo de menor risco de crédito do país, emitido pelo Governo Federal. Para valores de até R$ 10.000 aplicados, não há cobrança da taxa de custódia da B3, tornando-se o veículo ideal para reservas financeiras.</p>
+        `
+      },
+      'fin-1': {
+        categoria: 'Trabalho & Rescisão',
+        data: '06/11/2026',
+        titulo: 'Demissão sem justa causa: como calcular aviso prévio e férias proporcionais em 2026',
+        imagem: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80',
+        resumo: 'Confira o cálculo com as novas bases salariais e as regras de liberação imediata do saque-aniversário.',
+        conteudo: `
+          <p class="mb-4">Entender os direitos na rescisão trabalhista sem justa causa evita prejuízos na hora de homologar os valores.</p>
+          <h3 class="text-lg font-bold text-slate-900 mt-4 mb-2">Verbas Rescisórias Principais</h3>
+          <ul class="list-disc pl-5 space-y-2 mb-4">
+            <li><strong>Saldo de Salário:</strong> Pagamento proporcional aos dias trabalhados no mês do desligamento.</li>
+            <li><strong>Aviso Prévio Indenizado ou Trabalhado:</strong> 30 dias base acrescidos de 3 dias por ano completo na empresa.</li>
+            <li><strong>Férias Vencidas e Proporcionais:</strong> Calculadas com o adicional constitucional de 1/3.</li>
+            <li><strong>13º Salário Proporcional:</strong> Número de meses trabalhados dividido por 12.</li>
+            <li><strong>Multa de 40% do FGTS:</strong> Incidente sobre o total depositado durante o vínculo empregatício.</li>
+          </ul>
+        `
+      },
+      'fin-2': {
+        categoria: 'Benefícios Sociais',
+        data: '05/11/2026',
+        titulo: 'Calendário de Saques PIS/PASEP: quem tem direito ao abono e passo a passo de consulta pelo CPF',
+        imagem: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80',
+        resumo: 'Veja os critérios de elegibilidade para trabalhadores de empresas privadas e servidores públicos.',
+        conteudo: `
+          <p class="mb-4">O abono salarial PIS/PASEP é pago anualmente aos trabalhadores formais que atendem aos requisitos estabelecidos por lei.</p>
+          <h3 class="text-lg font-bold text-slate-900 mt-4 mb-2">Quem tem direito?</h3>
+          <p class="mb-4">Para ter acesso ao benefício, é necessário estar cadastrado no PIS/PASEP há pelo menos 5 anos, ter recebido remuneração média de até dois salários mínimos no ano-base e ter trabalhado com carteira assinada por pelo menos 30 dias.</p>
+        `
+      },
+      'ecom-1': {
+        categoria: 'Marketplaces',
+        data: '06/11/2026',
+        titulo: 'Taxas da Shopee vs Mercado Livre: onde o vendedor iniciante lucra mais por pedido?',
+        imagem: 'https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=800&q=80',
+        resumo: 'Comparamos frete subsidiado, taxa de comissão fixa e tempo de repasse em conta bancária.',
+        conteudo: `
+          <p class="mb-4">Escolher o canal de vendas ideal depende do ticket médio do produto e do modelo de envio adotado pelo lojista autônomo.</p>
+          <h3 class="text-lg font-bold text-slate-900 mt-4 mb-2">Comissões e Taxas Fixas</h3>
+          <p class="mb-4">Enquanto a Shopee aplica taxas atrativas para produtos de ticket baixo com cupons de frete, o Mercado Livre oferece maior conversão por meio do ecossistema Full e entregas no mesmo dia. Para o iniciante, precificar considerando a taxa fixa por item e a retenção é o segredo para manter lucro.</p>
+        `
+      },
+      'ecom-2': {
+        categoria: 'Regulamentação MEI',
+        data: '06/11/2026',
+        titulo: 'Emissão de Nota Fiscal Obrigatória no e-commerce: como não ter a conta suspensa',
+        imagem: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80',
+        resumo: 'Tudo o que o lojista digital precisa ajustar nos sistemas de faturamento para evitar bloqueios.',
+        conteudo: `
+          <p class="mb-4">Os grandes marketplaces do Brasil já exigem emissão de NF-e para 100% dos envios via centros de distribuição ou coletas integradas.</p>
+          <p class="mb-4">O Microempreendedor Individual (MEI) deve utilizar o emissor nacional gratuito ou integradores de ERP (como Bling ou Tiny) para automatizar a emissão sem atrasar a expedição dos pacotes diários.</p>
+        `
+      },
+      'tech-1': {
+        categoria: 'Alerta de Segurança',
+        data: '06/11/2026',
+        titulo: 'Novo golpe do falso comprovante no WhatsApp: como identificar chaves adulteradas',
+        imagem: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=800&q=80',
+        resumo: 'Criminosos usam aplicativos que simulam o layout bancário oficial; aprenda a checar o saldo real.',
+        conteudo: `
+          <p class="mb-4">Golpistas estão utilizando geradores de comprovantes que copiam fielmente as fontes, cores e logotipos dos principais bancos digitais do país.</p>
+          <h3 class="text-lg font-bold text-slate-900 mt-4 mb-2">Como se proteger</h3>
+          <p class="mb-4">A única confirmação válida de pagamento via Pix é o extrato da sua própria instituição financeira. Nunca libere produtos, serviços ou entregas baseando-se apenas em comprovantes enviados pelo comprador.</p>
+        `
+      },
+      'tech-2': {
+        categoria: 'Dicas & WhatsApp',
+        data: '06/11/2026',
+        titulo: '3 ajustes simples de privacidade no celular para impedir clonagem e roubo de dados',
+        imagem: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
+        resumo: 'Passo a passo rápido para ativar autenticação em duas etapas no chip e nos principais mensageiros.',
+        conteudo: `
+          <p class="mb-4">A proteção dos seus aplicativos bancários começa pelas camadas básicas do sistema operacional do smartphone.</p>
+          <ul class="list-disc pl-5 space-y-2 mb-4">
+            <li><strong>PIN no chip da operadora (SIM Lock):</strong> Impede que retirem seu chip para receber códigos SMS em outro aparelho.</li>
+            <li><strong>Verificação em 2 etapas no WhatsApp:</strong> Cria um código numérico de segurança obrigatório.</li>
+            <li><strong>Ocultar notificações na tela de bloqueio:</strong> Evita que terceiros vejam senhas temporárias sem desbloquear a biometria.</li>
+          </ul>
+        `
+      }
+    };
+
+    function gerarCardHtml(art, cor) {
+      const imgUrl = art.imagem_url || art.imagem || 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80';
+      const resumo = art.resumo || '';
+      const titulo = art.titulo || '';
+      const cat = art.categoria || '';
+      const data = art.data || 'Hoje';
+      const tempo = art.tempo_leitura || '3';
+
+      const corText = cor === 'emerald' ? 'text-emerald-600' : (cor === 'amber' ? 'text-amber-600' : 'text-sky-600');
+      const corHover = cor === 'emerald' ? 'group-hover:text-emerald-600' : (cor === 'amber' ? 'group-hover:text-amber-600' : 'group-hover:text-sky-600');
+      const corBorderHover = cor === 'emerald' ? 'hover:border-emerald-400' : (cor === 'amber' ? 'hover:border-amber-400' : 'hover:border-sky-400');
+
+      return `
+        <div onclick="abrirModalPorId('${art.id}')" class="bg-white rounded-xl border border-slate-200 shadow-sm ${corBorderHover} transition cursor-pointer flex flex-col justify-between overflow-hidden group">
+          <div class="h-44 w-full overflow-hidden bg-slate-100">
+            <img src="${imgUrl}" alt="${titulo}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80'">
+          </div>
+          <div class="p-5 flex-grow flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] font-bold ${corText} uppercase tracking-wider">${cat}</span>
+              <h3 class="font-bold text-slate-900 mt-1 mb-2 ${corHover} transition leading-snug">
+                ${titulo}
+              </h3>
+              <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">${resumo}</p>
+            </div>
+            <div class="flex items-center justify-between text-xs text-slate-400 mt-4 pt-3 border-t border-slate-100">
+              <span>${data} • Leitura: ${tempo} min</span>
+              <span class="${corText} font-semibold group-hover:underline">Ler artigo &rarr;</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function abrirModalPorId(id) {
+      const art = bancoArtigos[id];
+      if (!art) return;
+
+      const conteudo = document.getElementById('modal-conteudo');
+      const imgUrl = art.imagem_url || art.imagem || 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80';
+      const textoHtml = art.conteudo_html || art.conteudo || '<p>Conteúdo em atualização.</p>';
+      const tempo = art.tempo_leitura || '3';
+
+      conteudo.innerHTML = `
+        <div class="mb-4">
+          <span class="text-xs font-bold text-sky-600 uppercase tracking-wider">${art.categoria} • ${art.data} • Leitura: ${tempo} min</span>
+          <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-2 mb-3 leading-tight">${art.titulo}</h1>
+        </div>
+        <div class="w-full h-64 md:h-80 rounded-xl overflow-hidden mb-6 bg-slate-100">
+          <img src="${imgUrl}" class="w-full h-full object-cover">
+        </div>
+        <div class="p-4 bg-slate-50 border-l-4 border-[#4f93b5] rounded-r-xl text-xs md:text-sm text-slate-700 font-medium leading-relaxed mb-6">
+          ${art.resumo}
+        </div>
+        <div class="prose max-w-none text-sm text-slate-700 leading-relaxed space-y-4 border-t border-slate-100 pt-4">
+          ${textoHtml}
+        </div>
+        <div class="mt-8 flex justify-center">
+          <div id="modal-ad-slot" class="w-[300px] min-h-[250px] overflow-hidden flex items-center justify-center"></div>
+        </div>
+      `;
+
+      // Injeta os scripts de anúncio do Adsterra para o modal
+      const adSlot = document.getElementById('modal-ad-slot');
+      if (adSlot) {
+        const s1 = document.createElement('script');
+        s1.type = 'text/javascript';
+        s1.text = `atOptions = { 'key' : '7aa6b62c092a37837c969644be1ccb38', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };`;
+        const s2 = document.createElement('script');
+        s2.type = 'text/javascript';
+        s2.src = 'https://bauval.org/22/7aa6b62c092a37837c969644be1ccb38';
+        adSlot.appendChild(s1);
+        adSlot.appendChild(s2);
+      }
+
+      document.getElementById('artigo-modal').classList.remove('hidden');
+    }
+
+    function fecharModal() {
+      document.getElementById('artigo-modal').classList.add('hidden');
+    }
+
+    function filtrarCategoria(cat) {
+      const secaoFinancas = document.getElementById('financas');
+      const secaoEcom = document.getElementById('ecommerce');
+      const secaoTech = document.getElementById('tecnologia');
+      const secaoDestaques = document.getElementById('destaques');
+
+      if (cat === 'todas') {
+        secaoDestaques.style.display = 'block';
+        secaoFinancas.style.display = 'block';
+        secaoEcom.style.display = 'block';
+        secaoTech.style.display = 'block';
+      } else if (cat === 'Finanças') {
+        secaoDestaques.style.display = 'block';
+        secaoFinancas.style.display = 'block';
+        secaoEcom.style.display = 'none';
+        secaoTech.style.display = 'none';
+      } else if (cat === 'E-commerce') {
+        secaoDestaques.style.display = 'none';
+        secaoFinancas.style.display = 'none';
+        secaoEcom.style.display = 'block';
+        secaoTech.style.display = 'none';
+      } else if (cat === 'Tecnologia') {
+        secaoDestaques.style.display = 'none';
+        secaoFinancas.style.display = 'none';
+        secaoEcom.style.display = 'none';
+        secaoTech.style.display = 'block';
+      }
+    }
+
+    async function carregarArtigos() {
+      try {
+        const res = await fetch('./artigos.json?t=' + Date.now());
+        if (!res.ok) throw new Error('Status: ' + res.status);
+        const lista = await res.json();
+        if (!Array.isArray(lista) || lista.length === 0) return;
+
+        // Atualiza dicionário de matérias pelo id
+        lista.forEach(item => {
+          bancoArtigos[item.id] = item;
+        });
+
+        // 1. Renderiza a matéria de destaque principal (artigo mais recente)
+        const destaque = lista[0];
+        const destaqueContainer = document.getElementById('destaque-conteudo');
+        if (destaqueContainer && destaque) {
+          destaqueContainer.innerHTML = `
+            <article onclick="abrirModalPorId('${destaque.id}')" class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition cursor-pointer group">
+              <div class="relative bg-gradient-to-tr from-slate-950 via-slate-900 to-[#1e3a8a] text-white p-8 md:p-10 flex flex-col justify-end min-h-[340px]">
+                <div class="absolute inset-0 opacity-25 overflow-hidden">
+                  <img src="${destaque.imagem_url || destaque.imagem}" alt="${destaque.titulo}" class="w-full h-full object-cover">
+                </div>
+                <div class="relative z-10">
+                  <span class="inline-block bg-emerald-500 text-slate-950 text-xs font-black px-3 py-1 rounded-full w-max mb-3 uppercase tracking-wider">
+                    ${destaque.categoria}
+                  </span>
+                  <h1 class="text-2xl md:text-4xl font-extrabold leading-tight mb-3 group-hover:text-sky-300 transition">
+                    ${destaque.titulo}
+                  </h1>
+                  <p class="text-slate-300 text-sm md:text-base leading-relaxed line-clamp-2">
+                    ${destaque.resumo}
+                  </p>
+                  <div class="mt-5 flex items-center text-xs text-slate-400 space-x-4">
+                    <span>Leitura: ${destaque.tempo_leitura || 4} min</span>
+                    <span>•</span>
+                    <span>${destaque.data || 'Atualizado hoje'}</span>
+                    <span>•</span>
+                    <span class="text-emerald-400 font-semibold group-hover:underline">Ler matéria completa &rarr;</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          `;
+
+          const ticker = document.getElementById('ticker-urgente');
+          if (ticker) ticker.innerText = destaque.titulo;
+        }
+
+        // 2. Classifica as matérias por categoria para os grids correspondentes
+        const gridFinancas = document.getElementById('grid-financas');
+        const gridEcommerce = document.getElementById('grid-ecommerce');
+        const gridTecnologia = document.getElementById('grid-tecnologia');
+
+        const artigosFin = [];
+        const artigosEcom = [];
+        const artigosTech = [];
+
+        lista.forEach(art => {
+          const catLower = (art.categoria || '').toLowerCase();
+          if (catLower.includes('finan') || catLower.includes('rend') || catLower.includes('benef') || catLower.includes('selic') || catLower.includes('banco') || catLower.includes('trabalho') || catLower.includes('rescis')) {
+            artigosFin.push(art);
+          } else if (catLower.includes('e-com') || catLower.includes('market') || catLower.includes('mei') || catLower.includes('venda') || catLower.includes('shopee') || catLower.includes('fiscal') || catLower.includes('nota')) {
+            artigosEcom.push(art);
+          } else {
+            artigosTech.push(art);
+          }
+        });
+
+        if (gridFinancas && artigosFin.length > 0) {
+          gridFinancas.innerHTML = artigosFin.map(a => gerarCardHtml(a, 'emerald')).join('');
+        }
+        if (gridEcommerce && artigosEcom.length > 0) {
+          gridEcommerce.innerHTML = artigosEcom.map(a => gerarCardHtml(a, 'amber')).join('');
+        }
+        if (gridTecnologia && artigosTech.length > 0) {
+          gridTecnologia.innerHTML = artigosTech.map(a => gerarCardHtml(a, 'sky')).join('');
+        }
+
+        // 3. Atualiza as Mais Lidas com os artigos mais recentes do acervo
+        const listaMaisLidas = document.getElementById('lista-mais-lidas');
+        if (listaMaisLidas && lista.length > 0) {
+          const topArtigos = lista.slice(0, 3);
+          const visualizacoes = ['15.4k leituras', '12.8k leituras', '9.7k leituras'];
+          listaMaisLidas.innerHTML = topArtigos.map((art, idx) => `
+            <li onclick="abrirModalPorId('${art.id}')" class="flex items-start gap-3 cursor-pointer group">
+              <span class="text-[#4f93b5] font-black text-lg">${idx + 1}</span>
+              <div>
+                <h4 class="text-xs font-semibold text-slate-800 group-hover:text-[#4f93b5] transition leading-snug">
+                  ${art.titulo}
+                </h4>
+                <span class="block text-[10px] text-slate-400 mt-1">${visualizacoes[idx] || '8.5k leituras'}</span>
+              </div>
+            </li>
+          `).join('');
+        }
+
+      } catch (err) {
+        console.warn('[Portal Nexus] Carregando matérias estáticas locais (fallback ativado):', err);
+      }
+    }
+
+    // Inicialização da renderização dinâmica
+    carregarArtigos();
+  </script>
+</body>
+</html>

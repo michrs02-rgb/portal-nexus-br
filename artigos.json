@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "data": "06/11/2026",
+    "categoria": "Finanças Práticas",
+    "titulo": "R$ 1.000 no Tesouro Selic, Nubank ou Poupança: Qual Rende Mais Hoje?",
+    "resumo": "Simulação comparativa detalhada mostrando o rendimento líquido real descontando o Imposto de Renda e a inflação.",
+    "imagem_url": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
+    "tempo_leitura": "4",
+    "conteudo_html": "<p>Com as recentes decisões sobre a taxa básica de juros, muitos trabalhadores procuram a melhor opção de liquidez diária para a reserva de emergência.</p><h3>Comparativo de Rentabilidade Líquida</h3><p>Enquanto a caderneta de poupança segue com rendimento limitado, as aplicações atreladas ao CDI e o Tesouro Selic continuam entregando retornos superiores, mesmo após a retenção da alíquota do Imposto de Renda pela tabela regressiva.</p><p>Para quem busca liquidez imediata com segurança, a diversificação entre títulos públicos federais e contas com rendimento automático acima de 100% do CDI segue como a recomendação técnica mais sólida.</p>"
+  },
+  {
+    "id": "2",
+    "data": "06/11/2026",
+    "categoria": "E-commerce & MEI",
+    "titulo": "Taxas de Marketplaces: Onde o Vendedor Autônomo Tem Maior Margem?",
+    "resumo": "Análise comparativa das comissões, taxas fixas por item e regras de frete nas principais plataformas online.",
+    "imagem_url": "https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80",
+    "tempo_leitura": "3",
+    "conteudo_html": "<p>Vender em marketplaces exige atenção redobrada aos custos embutidos em cada pedido para não operar no prejuízo sem perceber.</p><h3>Atenção ao Custo Efetivo Total</h3><p>Além da porcentagem de comissão padrão, fatores como taxa fixa por produto de baixo valor, coparticipação em frete grátis e custo de embalagem podem consumir até 30% do faturamento bruto.</p><p>O lojista que trabalha com precificação precisa e controle de estoque por curva ABC consegue manter a margem saudável mesmo diante dos reajustes anuais das operadoras de comércio eletrônico.</p>"
+  },
+  {
+    "id": "3",
+    "data": "06/11/2026",
+    "categoria": "Tecnologia & Golpes",
+    "titulo": "Alerta de Segurança: Como Identificar Falsos Comprovantes no WhatsApp",
+    "resumo": "Golpistas utilizam geradores de comprovantes com layout adulterado; saiba como se blindar ao receber pagamentos.",
+    "imagem_url": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
+    "tempo_leitura": "3",
+    "conteudo_html": "<p>Comerciantes e prestadores de serviços continuam sendo alvo frequente de fraudes envolvendo comprovantes fraudulentos enviados por aplicativos de mensagens.</p><h3>A Regra de Ouro da Validação</h3><p>Nunca confie exclusivamente no arquivo em imagem ou PDF enviado pelo comprador. A confirmação de pagamento só deve ser considerada válida após a checagem manual do saldo disponível diretamente no aplicativo do seu banco.</p><p>Ativar as notificações automáticas por push e cadastrar chaves aleatórias exclusivas para recebimentos comerciais reduz significativamente a exposição a tentativas de engenharia social.</p>"
+  }
+]

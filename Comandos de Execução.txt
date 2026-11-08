@@ -1,0 +1,45 @@
+npm run atualizar && git add . && git commit -m "feat: materias do dia" && git push origin main
+
+===========
+==========================================
+PORTAL NEXUS BR - COMANDOS DE ATUALIZAÇÃO EDITORIAL
+=====================================================
+
+Certifique-se de que está dentro da pasta do projeto (portal-nexus)
+no terminal antes de executar os comandos abaixo.
+
+-----------------------------------------------------
+PASSO 1: TESTE OPCIONAL (Simulação sem gastar API)
+-----------------------------------------------------
+Execute este comando apenas se quiser conferir se os feeds RSS
+estão respondendo sem acionar o Gemini:
+
+node atualizar_portal.js --dry-run
+
+
+-----------------------------------------------------
+PASSO 2: GERAR E PUBLICAR NOVA NOTÍCIA COM IA
+-----------------------------------------------------
+Execute para minerar os feeds, chamar o Gemini e atualizar
+o arquivo 'artigos.json':
+
+npm run atualizar
+
+
+-----------------------------------------------------
+PASSO 3: ENVIAR PARA O GITHUB E DEPLOY NA VERCEL
+-----------------------------------------------------
+Execute a sequência abaixo para sincronizar com a Vercel:
+
+git add .
+git commit -m "feat: publicacao automatizada via IA"
+git push origin main
+
+
+-----------------------------------------------------
+PASSO 4: CONFERIR O SITE NO AR
+-----------------------------------------------------
+Acesse o portal após 30 segundos:
+https://portalnexusbr.vercel.app/
+(Dica: Use Ctrl + F5 para forçar a limpeza do cache no navegador)
+=====================================================

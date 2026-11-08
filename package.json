@@ -1,0 +1,25 @@
+{
+  "name": "portal-nexus-br",
+  "version": "1.0.0",
+  "description": "Portal Nexus BR - Finanças, Negócios & Tecnologia com pipeline autônomo editorial",
+  "type": "module",
+  "main": "atualizar_portal.js",
+  "scripts": {
+    "start": "node atualizar_portal.js",
+    "atualizar": "node atualizar_portal.js"
+  },
+  "keywords": [
+    "portal",
+    "noticias",
+    "automacao",
+    "gemini",
+    "rss"
+  ],
+  "author": "Portal Nexus BR",
+  "license": "ISC",
+  "dependencies": {
+    "@google/genai": "^3.0.0",
+    "dotenv": "^16.4.7",
+    "rss-parser": "^3.13.0"
+  }
+}
