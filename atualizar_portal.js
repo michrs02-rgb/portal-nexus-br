@@ -279,7 +279,7 @@ DIRETRIZES EDITORIAIS:
   console.log('🤖 Solicitando redação jornalística à inteligência do Google Gemini...');
 
   // Modelos suportados da família Gemini (com fallback)
-  const modelos = ['gemini-3.8-flash'];
+  const modelos = ['gemini-3.8-flash', 'gemini-3.5-flash', 'gemini-3.5-flash-lite'];
   let respostaTexto = '';
   let ultimoErro = null;
 
