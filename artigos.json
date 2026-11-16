@@ -1,5 +1,15 @@
 [
   {
+    "id": "11",
+    "data": "16/11/2026",
+    "categoria": "Finanças Práticas",
+    "titulo": "IBC-Br recua 0,9% no 3º trimestre na maior queda desde a pandemia; entenda o impacto no seu bolso",
+    "resumo": "A prévia do PIB divulgada pelo Banco Central apontou retração em todos os setores da economia. Entenda os motivos da desaceleração e o que esperar dos juros e do consumo.",
+    "imagem_url": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80",
+    "tempo_leitura": "4",
+    "conteudo_html": "<p>O Índice de Atividade Econômica do Banco Central (IBC-Br), conhecido como a prévia do Produto Interno Bruto (PIB), registrou uma retração de 0,9% no terceiro trimestre deste ano, em comparação ao segundo trimestre, após ajuste sazonal. Trata-se do primeiro resultado negativo do indicador desde o mesmo período do ano passado (-0,28%) e da maior queda trimestral contabilizada desde o segundo trimestre de 2020, auge das restrições da pandemia de Covid-19.</p><h3>Desempenho negativo em todos os setores</h3><p>O resultado refletiu uma desaceleração disseminada na atividade produtiva do país. No trimestre, a Agropecuária liderou o recuo com queda de 2%, seguida pela Indústria (-1,1%) e pelo setor de Serviços (-0,5%). No dado mensal isolado de setembro, o IBC-Br apresentou queda de 0,2% em relação a agosto, revertendo o leve avanço de 0,1% observado no mês anterior.</p><h3>Efeito dos juros altos e contraste com estímulos fiscais</h3><p>A desaceleração ocorre em um contexto de forças opostas na economia. De um lado, medidas fiscais adotadas pelo governo — como a isenção do Imposto de Renda para quem ganha até R$ 5 mil, a liberação de recursos do FGTS e o perdão de dívidas de Microempreendedores Individuais (MEIs) — buscaram impulsionar a renda e o consumo. De outro, o Banco Central mantém a taxa básica de juros (Selic) em patamar elevado (13,75% ao ano) justamente para desacelerar o ritmo econômico e conter as pressões inflacionárias.</p><h3>O que esperar e como se planejar</h3><p>Para o cidadão e o pequeno empreendedor, a desaceleração da economia sinaliza um cenário de consumo mais moderado e crédito caro. A recomendação prática para os próximos meses é priorizar o controle de caixa, evitar dívidas com juros altos e recalibrar expectativas de vendas. Vale destacar que o IBC-Br é um indicador focado na oferta e serve de insumo para as decisões do Banco Central, enquanto o resultado oficial do PIB do terceiro trimestre, calculado pelo IBGE com foco também na demanda, será divulgado em 2 de dezembro.</p>"
+  },
+  {
     "id": "10",
     "data": "14/11/2026",
     "categoria": "E-commerce & MEI",
